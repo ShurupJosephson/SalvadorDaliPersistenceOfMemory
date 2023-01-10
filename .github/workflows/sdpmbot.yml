@@ -12,10 +12,10 @@ jobs:
           token: ${{ secrets.TELEGRAM_SDPMBOT_TOKEN }}
           message:
             | #https://help.github.com/en/actions/reference/contexts-and-expression-syntax-for-github-actions#github-context
-            **Проект:** ${{ github.repository }}
+            *Проект:*  ${{ github.repository }}
 
-            **Ветка:**  ${{ github.ref_name }}
+            *Ветка:*  ${{ github.ref_name }}
 
-            **Последний коммит:** ${{ github.event.head_commit.message }}
+            *Последний коммит:*  ${{ github.event.head_commit.message }}
 
-            **Автор:** @${{ github.actor }}
+            *Автор:*  @${{ github.actor }}
