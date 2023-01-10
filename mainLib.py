@@ -8,6 +8,11 @@ import numpy as np
 from colorama import *
 
 
+
+
+
+#мхйхрня х ъ опнасел йнлхрхрэ
+
 class Matrix:
     def __init__(self, n, m, mtrx=None):
         if n < 1:
