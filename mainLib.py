@@ -13,6 +13,7 @@ from colorama import *
 
 #мхйхрня х ъ опнасел йнлхрхрэ
 #мхйхрня х ъ опнасел йнлхрхрэ
+#Test 3
 
 class Matrix:
     def __init__(self, n, m, mtrx=None):
