@@ -1,4 +1,4 @@
-import math
+﻿import math
 import copy
 import collections
 import random
@@ -10,26 +10,43 @@ from colorama import *
 
 
 
-
-#������� � � ������� ��������
-#������� � � ������� ��������
-#Test 3
-
 class Matrix:
     def __init__(self, n, m, mtrx=None):
-        if n < 1:
-            raise ValueError("Invalid rows value")
-        if m < 1:
-            raise ValueError("Invalid columns value")
 
         if mtrx is None:
             mtrx = [[0 for i in range(m)] for j in range(n)]
         elif len(mtrx) != n or len(mtrx[0]) != m:
             raise ValueError("Invalid mtrx in init")
 
-        self.n = n
-        self.m = m
-        self.mtrx = mtrx
+        self.__n = (n)                #Способ инициализации полей сеттером
+        self.__m = (m)
+        self.__mtrx = mtrx
+    
+    def __check(s:str):               #Функция передачи строки декоратору
+        def config(input_func):       #Вложенный декоратор
+             def output_func(*args):  #Функция проверки обрабатываемого значения
+                 if args[0]<1:
+                    raise ValueError(f"Invalid {s} value")
+             return output_func
+        return config
+
+    @property                         #Сеттеры и геттеры для строк и столбцов
+    def n(self):
+        return self.__n
+
+    @n.setter
+    @__check('rows')
+    def n(self, n):
+        self.n=n
+
+    @property
+    def m(self):
+        return self.__m
+
+    @m.setter
+    @__check('columns')
+    def m(self, m):
+        self.__m
 
     def __str__(self):
         s = ''
